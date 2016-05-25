@@ -1,0 +1,3 @@
+graft dbx_api_primer/static
+graft dbx_api_primer/templates
+include dbx_api_primer/schema.sql

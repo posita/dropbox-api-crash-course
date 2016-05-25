@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
+  {% if user_name %}
+    <h2>Settings for {{ user_name }}{% if user_email %} &lt;<a href="mailto:{{ user_email }}?Subject=Bacon%20Dropcakes%21&body=Check%20out%20this%20amazing%20new%20Dropbox%20Platform%20application%21">{{ user_email }}</a>&gt;{% endif %}</h2>
+  {% else %}
+    <h2>Not logged in</h2>
+  {% endif %}
+  <form action="{{ url_for('route_') }}" method="post">
+    <dl>
+      <dt>Actions:
+        {% if user_name %}
+          <dd><button type="submit" name="action" value="disable">Disable me!</button>
+        {% else %}
+          <dd><button type="submit" name="action" value="enable">Sign me up!</button>
+        {% endif %}
+    </dl>
+  </form>
+{% endblock %}
